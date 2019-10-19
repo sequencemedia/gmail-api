@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "DEBUG=fb-gmail-api* node index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "DEBUG=@sequencemedia/gmail-api* node index",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix"
   },
   "author": "",
   "license": "ISC",
