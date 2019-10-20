@@ -1,14 +1,18 @@
 const blessed = require('blessed') // neo-blessed
 const clipboardy = require('clipboardy')
 
-const {
-  SCOPES
-} = require('./lib/constants')
+const debug = require('debug')
 
 const {
-  getAuthForCredentials,
+  SCOPES,
+  ENOENT_CREDENTIALS
+} = require('./lib/constants')
+
+const error = debug('@sequencemedia/gmail-api:credentials:error')
+
+const {
+  getAuth,
   getCredentialsTokenForAuthCode,
-  getCredentials,
   setCredentialsToken
 } = require('./lib/auth')
 
@@ -221,9 +225,11 @@ function renderAuthorisationUrlScreen (screen, authorisationUrl, complete) {
   const buttons = [{ button: copy }, { button: next }]
 
   async function handleCopy () {
+    await clipboardy.write(textarea.getValue())
+
     box.focus()
 
-    await clipboardy.write(textarea.getValue())
+    screen.render()
   }
 
   function handleNext () {
@@ -290,11 +296,32 @@ function renderInterstitial (screen, complete) {
 
   const next = getNextButton()
 
+  const button = {
+    button: next
+  }
+
   function handleNext () {
     box.hide()
 
     complete()
   }
+
+  screen.key(['escape', 'q', 'C-c'], () => { process.exit() })
+
+  screen.key(['tab'], () => {
+    if (button.hasFocus) {
+      delete button.hasFocus
+      box.focus()
+    } else {
+      button.hasFocus = true
+
+      const {
+        button: next
+      } = button
+
+      next.focus()
+    }
+  })
 
   next.on('click', handleNext)
   next.key(['enter'], handleNext)
@@ -324,11 +351,13 @@ function renderInputCredentialsTokenScreen (screen, oAuth2, complete) {
   const buttons = [{ button: paste }, { button: write }, { button: done }]
 
   async function handlePaste () {
-    box.focus()
-
     const value = await clipboardy.read()
 
     textarea.setValue(value)
+
+    box.focus()
+
+    screen.render()
   }
 
   async function handleWrite () {
@@ -398,8 +427,7 @@ function renderInputCredentialsTokenScreen (screen, oAuth2, complete) {
 
 async function app () {
   try {
-    const credentials = await getCredentials()
-    const oAuth2 = await getAuthForCredentials(credentials)
+    const oAuth2 = await getAuth()
     const authorisationUrl = oAuth2.generateAuthUrl({ access_type: 'offline', scope: SCOPES })
 
     const screen = blessed.screen({
@@ -415,7 +443,23 @@ async function app () {
       })
     })
   } catch (e) {
-    console.log(e)
+    const {
+      code
+    } = e
+
+    if (code === 'ENOENT') {
+      /**
+       *  There are no credentials on the file system
+       */
+      error(ENOENT_CREDENTIALS)
+    } else {
+      const {
+        message
+      } = e
+
+      if (code) error(code, message)
+      else { error(message) }
+    }
   }
 }
 
