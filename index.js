@@ -8,6 +8,7 @@ const {
   getMessage
 } = require('./lib/gmail/messages')
 
+const log = debug('@sequencemedia/gmail-api:log')
 const error = debug('@sequencemedia/gmail-api:error')
 
 async function app () {
@@ -17,26 +18,26 @@ async function app () {
     {
       const messagesList = await getMessagesList(gmail, { max: 1 })
 
-      console.log('length (1)', messagesList.length)
+      log('messagesList (1)', messagesList.length)
 
-      Promise.all(messagesList.map((message) => getMessage(gmail, message)))
-        .then((messagesList) => {
-          messagesList.forEach(({ data: { payload } }) => {
-            console.log(payload)
-          })
+      const messages = await Promise.all(messagesList.map((message) => getMessage(gmail, message)))
+
+      messages
+        .forEach(({ data: { payload } = {} } = {}, i) => {
+          log(payload.headers.find(({ name }) => name.toLowerCase() === 'subject'), i + 1)
         })
     }
 
     {
       const messagesList = await getMessagesList(gmail, { query: 'foyles', max: 1 })
 
-      console.log('length (2)', messagesList.length)
+      log('messagesList (2)', messagesList.length)
 
-      Promise.all(messagesList.map((message) => getMessage(gmail, message)))
-        .then((messagesList) => {
-          messagesList.forEach(({ data: { payload } }) => {
-            console.log(payload)
-          })
+      const messages = await Promise.all(messagesList.map((message) => getMessage(gmail, message)))
+
+      messages
+        .forEach(({ data: { payload } = {} } = {}, i) => {
+          log(payload.headers.find(({ name }) => name.toLowerCase() === 'subject'), i + 1)
         })
     }
   } catch (e) {
