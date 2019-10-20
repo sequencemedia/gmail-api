@@ -16,29 +16,33 @@ async function app () {
     const gmail = await getGmail()
 
     {
-      const messagesList = await getMessagesList(gmail, { max: 1 })
+      const messagesList = await getMessagesList(gmail, { max: 2001 })
 
       log('messagesList (1)', messagesList.length)
 
+      /*
       const messages = await Promise.all(messagesList.map((message) => getMessage(gmail, message)))
 
       messages
         .forEach(({ data: { payload } = {} } = {}, i) => {
           log(payload.headers.find(({ name }) => name.toLowerCase() === 'subject'), i + 1)
         })
+      */
     }
 
     {
-      const messagesList = await getMessagesList(gmail, { query: 'foyles', max: 1 })
+      const messagesList = await getMessagesList(gmail, { query: 'foyles', max: 201 })
 
       log('messagesList (2)', messagesList.length)
 
+      /*
       const messages = await Promise.all(messagesList.map((message) => getMessage(gmail, message)))
 
       messages
         .forEach(({ data: { payload } = {} } = {}, i) => {
           log(payload.headers.find(({ name }) => name.toLowerCase() === 'subject'), i + 1)
         })
+      */
     }
   } catch (e) {
     const {
