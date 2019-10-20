@@ -14,38 +14,15 @@ const {
 
 const AUTHORISATION_URL_CONTENT = 'Copy this URL to your clipboard and visit it to get an authorisation code from Google.'
 const CREDENTIALS_TOKEN_CONTENT = 'Paste the authorisation code from Google.'
+const INTERSTITIAL_CONTENT = 'Go to Google! With the URL! Then come back here.'
 
-function renderAuthorisationUrlScreen (screen, authorisationUrl, complete) {
-  const box = blessed.box({
+const getTextarea = (value = '') => (
+  blessed.textarea({
     top: 'center',
     left: 'center',
-    width: 80,
-    height: 28,
-    content: AUTHORISATION_URL_CONTENT,
-    padding: {
-      top: 1,
-      right: 2,
-      bottom: 1,
-      left: 2
-    },
-    border: {
-      type: 'line'
-    },
-    style: {
-      fg: '#ffffff',
-      bg: '#006600',
-      border: {
-        fg: '#009900'
-      }
-    }
-  })
-
-  const textarea = blessed.textarea({
-    top: 'center',
-    left: 'center',
-    value: authorisationUrl,
     width: 76,
     height: 12,
+    value,
     padding: {
       top: 1,
       right: 2,
@@ -64,8 +41,10 @@ function renderAuthorisationUrlScreen (screen, authorisationUrl, complete) {
       }
     }
   })
+)
 
-  const copy = blessed.button({
+const getCopyButton = () => (
+  blessed.button({
     shrink: true,
     content: 'Copy to clipboard',
     right: 16,
@@ -89,8 +68,10 @@ function renderAuthorisationUrlScreen (screen, authorisationUrl, complete) {
       }
     }
   })
+)
 
-  const next = blessed.button({
+const getNextButton = () => (
+  blessed.button({
     shrink: true,
     content: 'Next',
     right: 0,
@@ -115,112 +96,10 @@ function renderAuthorisationUrlScreen (screen, authorisationUrl, complete) {
       }
     }
   })
+)
 
-  screen.enableKeys(copy)
-  screen.enableKeys(next)
-
-  const buttons = [{ button: copy }, { button: next }]
-
-  screen.key(['escape', 'q', 'C-c'], () => { process.exit() })
-
-  screen.key(['tab'], () => {
-    const alpha = buttons.find(({ hasFocus }) => hasFocus)
-    if (alpha) delete alpha.hasFocus
-
-    const omega = buttons.find((b) => b !== alpha)
-    if (omega) {
-      const { button } = omega
-      button.focus()
-      omega.hasFocus = true
-    }
-  })
-
-  copy.on('click', async () => {
-    box.focus()
-
-    await clipboardy.write(textarea.getValue())
-  })
-
-  copy.key(['enter'], async () => {
-    box.focus()
-
-    await clipboardy.write(textarea.getValue())
-  })
-
-  next.on('click', () => {
-    box.hide()
-
-    complete()
-  })
-
-  next.key(['enter'], () => {
-    box.hide()
-
-    complete()
-  })
-
-  box.append(textarea)
-
-  box.append(copy)
-  box.append(next)
-
-  box.show()
-
-  screen.append(box)
-  screen.render()
-}
-
-function renderInputCredentialsTokenScreen (screen, oAuth2, complete) {
-  const box = blessed.box({
-    top: 'center',
-    left: 'center',
-    width: 80,
-    height: 28,
-    content: CREDENTIALS_TOKEN_CONTENT,
-    padding: {
-      top: 1,
-      right: 2,
-      bottom: 1,
-      left: 2
-    },
-    border: {
-      type: 'line'
-    },
-    style: {
-      fg: '#ffffff',
-      bg: '#006600',
-      border: {
-        fg: '#009900'
-      }
-    }
-  })
-
-  const textarea = blessed.textarea({
-    parent: box,
-    top: 'center',
-    left: 'center',
-    width: 76,
-    height: 12,
-    padding: {
-      top: 1,
-      right: 2,
-      bottom: 1,
-      left: 2
-    },
-    border: {
-      type: 'line'
-    },
-    style: {
-      bold: true,
-      fg: '#000000',
-      bg: '#999999',
-      border: {
-        fg: '#cccccc'
-      }
-    }
-  })
-
-  const paste = blessed.button({
+const getPasteButton = () => (
+  blessed.button({
     shrink: true,
     content: 'Paste from clipboard',
     right: 34,
@@ -245,8 +124,10 @@ function renderInputCredentialsTokenScreen (screen, oAuth2, complete) {
       }
     }
   })
+)
 
-  const write = blessed.button({
+const getWriteButton = () => (
+  blessed.button({
     shrink: true,
     content: 'Write to file',
     right: 16,
@@ -271,8 +152,10 @@ function renderInputCredentialsTokenScreen (screen, oAuth2, complete) {
       }
     }
   })
+)
 
-  const done = blessed.button({
+const getDoneButton = () => (
+  blessed.button({
     shrink: true,
     content: 'Done',
     right: 0,
@@ -297,12 +180,170 @@ function renderInputCredentialsTokenScreen (screen, oAuth2, complete) {
       }
     }
   })
+)
+
+const getBox = (content) => (
+  blessed.box({
+    top: 'center',
+    left: 'center',
+    width: 80,
+    height: 28,
+    content,
+    padding: {
+      top: 1,
+      right: 2,
+      bottom: 1,
+      left: 2
+    },
+    border: {
+      type: 'line'
+    },
+    style: {
+      fg: '#ffffff',
+      bg: '#006600',
+      border: {
+        fg: '#009900'
+      }
+    }
+  })
+)
+
+function renderAuthorisationUrlScreen (screen, authorisationUrl, complete) {
+  const box = getBox(AUTHORISATION_URL_CONTENT)
+
+  const textarea = getTextarea(authorisationUrl)
+  const copy = getCopyButton()
+  const next = getNextButton()
+
+  screen.enableKeys(copy)
+  screen.enableKeys(next)
+
+  const buttons = [{ button: copy }, { button: next }]
+
+  async function handleCopy () {
+    box.focus()
+
+    await clipboardy.write(textarea.getValue())
+  }
+
+  function handleNext () {
+    box.hide()
+
+    complete()
+  }
+
+  screen.key(['escape', 'q', 'C-c'], () => { process.exit() })
+
+  screen.key(['tab'], () => {
+    const alpha = buttons.find(({ hasFocus }) => hasFocus)
+    if (alpha) delete alpha.hasFocus
+
+    const omega = buttons.find((b) => b !== alpha)
+    if (omega) {
+      const { button } = omega
+      button.focus()
+      omega.hasFocus = true
+    }
+  })
+
+  copy.on('click', handleCopy)
+  copy.key(['enter'], handleCopy)
+
+  next.on('click', handleNext)
+  next.key(['enter'], handleNext)
+
+  box.append(textarea)
+  box.append(copy)
+  box.append(next)
+
+  screen.append(box)
+
+  box.show()
+
+  screen.render()
+}
+
+function renderInterstitial (screen, complete) {
+  const box = blessed.box({
+    top: 'center',
+    left: 'center',
+    width: 60,
+    height: 14,
+    content: INTERSTITIAL_CONTENT,
+    padding: {
+      top: 1,
+      right: 2,
+      bottom: 1,
+      left: 2
+    },
+    border: {
+      type: 'line'
+    },
+    style: {
+      fg: '#ffffff',
+      bg: '#660000',
+      border: {
+        fg: '#990000'
+      }
+    }
+  })
+
+  const next = getNextButton()
+
+  function handleNext () {
+    box.hide()
+
+    complete()
+  }
+
+  next.on('click', handleNext)
+  next.key(['enter'], handleNext)
+
+  box.append(next)
+
+  screen.append(box)
+
+  box.show()
+
+  screen.render()
+}
+
+function renderInputCredentialsTokenScreen (screen, oAuth2, complete) {
+  const box = getBox(CREDENTIALS_TOKEN_CONTENT)
+
+  const textarea = getTextarea()
+
+  const paste = getPasteButton()
+  const write = getWriteButton()
+  const done = getDoneButton()
 
   screen.enableKeys(paste)
   screen.enableKeys(write)
   screen.enableKeys(done)
 
   const buttons = [{ button: paste }, { button: write }, { button: done }]
+
+  async function handlePaste () {
+    box.focus()
+
+    const value = await clipboardy.read()
+
+    textarea.setValue(value)
+  }
+
+  async function handleWrite () {
+    box.focus()
+
+    const credentialsToken = await getCredentialsTokenForAuthCode(oAuth2, textarea.getValue())
+
+    await setCredentialsToken(credentialsToken)
+  }
+
+  function handleDone () {
+    box.hide()
+
+    complete()
+  }
 
   screen.key(['escape', 'q', 'C-c'], () => { process.exit() })
 
@@ -334,28 +375,6 @@ function renderInputCredentialsTokenScreen (screen, oAuth2, complete) {
     }
   })
 
-  async function handlePaste () {
-    box.focus()
-
-    const value = await clipboardy.read()
-
-    textarea.setValue(value)
-  }
-
-  async function handleWrite () {
-    box.focus()
-
-    const credentialsToken = await getCredentialsTokenForAuthCode(oAuth2, textarea.getValue())
-
-    await setCredentialsToken(credentialsToken)
-  }
-
-  function handleDone () {
-    box.hide()
-
-    complete()
-  }
-
   paste.on('click', handlePaste)
   paste.key(['enter'], handlePaste)
 
@@ -370,12 +389,11 @@ function renderInputCredentialsTokenScreen (screen, oAuth2, complete) {
   box.append(write)
   box.append(done)
 
+  screen.append(box)
+
   box.show()
 
-  screen.append(box)
   screen.render()
-
-  textarea.focus()
 }
 
 async function app () {
@@ -390,8 +408,10 @@ async function app () {
     })
 
     renderAuthorisationUrlScreen(screen, authorisationUrl, function () {
-      renderInputCredentialsTokenScreen(screen, oAuth2, function () {
-        process.exit()
+      renderInterstitial(screen, function () {
+        renderInputCredentialsTokenScreen(screen, oAuth2, function () {
+          process.exit()
+        })
       })
     })
   } catch (e) {
