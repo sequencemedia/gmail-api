@@ -11,6 +11,14 @@ const {
   getMessage
 } = require('./lib/gmail/messages')
 
+const {
+  getLabelsList
+} = require('./lib/gmail/labels/list')
+
+const {
+  getLabel
+} = require('./lib/gmail/labels')
+
 const log = debug('@sequencemedia/gmail-api:log')
 const error = debug('@sequencemedia/gmail-api:error')
 
@@ -18,14 +26,23 @@ async function app () {
   try {
     const gmail = await getGmail()
 
+    const labelsList = await getLabelsList(gmail)
+
+    log('labelsList', labelsList.length)
+
+    const labels = await Promise.all(labelsList.map((label) => getLabel(gmail, label)))
+
+    labels
+      .forEach(({ data = {} } = {}, i) => {
+        log(data)
+      })
+
     {
       const messagesList = await getMessagesList(gmail, { max: 1 })
 
       log('messagesList (1)', messagesList.length)
 
       const messages = await Promise.all(messagesList.map((message) => getMessage(gmail, message)))
-
-      console.log(messages)
 
       messages
         .forEach(({ data: { payload } = {} } = {}, i) => {
