@@ -4,7 +4,10 @@ const debug = require('debug')
 const getGmail = require('./lib/gmail')
 
 const {
-  getMessagesList,
+  getMessagesList
+} = require('./lib/gmail/messages/list')
+
+const {
   getMessage
 } = require('./lib/gmail/messages')
 
@@ -21,6 +24,8 @@ async function app () {
       log('messagesList (1)', messagesList.length)
 
       const messages = await Promise.all(messagesList.map((message) => getMessage(gmail, message)))
+
+      console.log(messages)
 
       messages
         .forEach(({ data: { payload } = {} } = {}, i) => {
