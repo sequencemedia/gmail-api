@@ -4,7 +4,7 @@ const debug = require('debug')
 const getGmail = require('./lib/gmail')
 
 const {
-  getMessagesList
+  getMessages
 } = require('./lib/gmail/messages/list')
 
 const {
@@ -12,7 +12,7 @@ const {
 } = require('./lib/gmail/messages')
 
 const {
-  getDraftsList
+  getDrafts
 } = require('./lib/gmail/drafts/list')
 
 const {
@@ -20,7 +20,7 @@ const {
 } = require('./lib/gmail/drafts')
 
 const {
-  getLabelsList
+  getLabels
 } = require('./lib/gmail/labels/list')
 
 const {
@@ -35,7 +35,7 @@ async function app () {
     const gmail = await getGmail()
 
     {
-      const messagesList = await getMessagesList(gmail, { max: 1 })
+      const messagesList = await getMessages(gmail, { max: 1 })
 
       log('messagesList (1)', messagesList.length)
 
@@ -48,7 +48,7 @@ async function app () {
     }
 
     {
-      const messagesList = await getMessagesList(gmail, { query: 'ministryofjustice', max: 1 })
+      const messagesList = await getMessages(gmail, { query: 'ministryofjustice', max: 1 })
 
       log('messagesList (2)', messagesList.length)
 
@@ -61,7 +61,7 @@ async function app () {
     }
 
     {
-      const draftsList = await getDraftsList(gmail, { max: 1 })
+      const draftsList = await getDrafts(gmail, { max: 1 })
 
       log('draftsList (1)', draftsList.length)
 
@@ -74,7 +74,7 @@ async function app () {
     }
 
     {
-      const draftsList = await getDraftsList(gmail, { query: 'ministryofjustice', max: 1 })
+      const draftsList = await getDrafts(gmail, { query: 'ministryofjustice', max: 1 })
 
       log('draftsList (2)', draftsList.length)
 
@@ -86,7 +86,7 @@ async function app () {
         })
     }
 
-    const labelsList = await getLabelsList(gmail)
+    const labelsList = await getLabels(gmail)
 
     log('labelsList', labelsList.length)
 
@@ -96,7 +96,6 @@ async function app () {
       .forEach(({ data = {} } = {}, i) => {
         log(data)
       })
-
   } catch (e) {
     const {
       code
