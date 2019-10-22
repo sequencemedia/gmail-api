@@ -1,31 +1,32 @@
+require('module-alias/register')
 
 const debug = require('debug')
 
-const getGmail = require('./lib/gmail')
+const getGmail = require('@sequencemedia/gmail-api/lib/gmail')
 
 const {
   getMessages
-} = require('./lib/gmail/messages/list')
+} = require('@sequencemedia/gmail-api/lib/gmail/messages/list')
 
 const {
   getMessage
-} = require('./lib/gmail/messages')
+} = require('@sequencemedia/gmail-api/lib/gmail/messages')
 
 const {
   getDrafts
-} = require('./lib/gmail/drafts/list')
+} = require('@sequencemedia/gmail-api/lib/gmail/drafts/list')
 
 const {
   getDraft
-} = require('./lib/gmail/drafts')
+} = require('@sequencemedia/gmail-api/lib/gmail/drafts')
 
 const {
   getLabels
-} = require('./lib/gmail/labels/list')
+} = require('@sequencemedia/gmail-api/lib/gmail/labels/list')
 
 const {
   getLabel
-} = require('./lib/gmail/labels')
+} = require('@sequencemedia/gmail-api/lib/gmail/labels')
 
 const log = debug('@sequencemedia/gmail-api:log')
 const error = debug('@sequencemedia/gmail-api:error')
