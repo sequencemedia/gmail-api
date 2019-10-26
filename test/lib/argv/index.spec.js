@@ -1,8 +1,4 @@
-require('module-alias/register')
-
-const chai = require('chai')
-const sinon = require('sinon')
-const sinonChai = require('sinon-chai')
+const argsMap = require('@sequencemedia/gmail-api/lib/argv/args-map')
 
 const {
   hasCredentialsPath,
@@ -15,66 +11,70 @@ const {
   getCredentialsTokenJson
 } = require('@sequencemedia/gmail-api/lib/argv')
 
-chai.use(sinonChai)
-
-const {
-  expect
-} = chai
+jest.mock('@sequencemedia/gmail-api/lib/argv/args-map', () => ({
+  has: jest.fn(),
+  get: jest.fn()
+}))
 
 describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   describe('Always', () => {
     it('exports `hasCredentialsPath`', () => {
       expect(hasCredentialsPath)
-        .to.be.a('function')
+        .toEqual(expect.any(Function))
     })
 
     it('exports `getCredentialsPath`', () => {
       expect(getCredentialsPath)
-        .to.be.a('function')
+        .toEqual(expect.any(Function))
     })
 
     it('exports `hasCredentialsTokenPath`', () => {
       expect(hasCredentialsTokenPath)
-        .to.be.a('function')
+        .toEqual(expect.any(Function))
     })
 
     it('exports `getCredentialsTokenPath`', () => {
       expect(getCredentialsTokenPath)
-        .to.be.a('function')
+        .toEqual(expect.any(Function))
     })
 
     it('exports `hasCredentialsJson`', () => {
       expect(hasCredentialsJson)
-        .to.be.a('function')
+        .toEqual(expect.any(Function))
     })
 
     it('exports `getCredentialsJson`', () => {
       expect(getCredentialsJson)
-        .to.be.a('function')
+        .toEqual(expect.any(Function))
     })
 
     it('exports `hasCredentialsTokenJson`', () => {
       expect(hasCredentialsTokenJson)
-        .to.be.a('function')
+        .toEqual(expect.any(Function))
     })
 
     it('exports `getCredentialsTokenJson`', () => {
       expect(getCredentialsTokenJson)
-        .to.be.a('function')
+        .toEqual(expect.any(Function))
     })
   })
 
   describe('`hasCredentialsPath()`', () => {
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `has` on the map instance with the argument `credentialsPath`', () => {
-        const mockMap = {
-          has: sinon.spy()
-        }
+        hasCredentialsPath(argsMap)
 
-        hasCredentialsPath(mockMap)
+        expect(argsMap.has)
+          .toHaveBeenCalledWith('credentialsPath')
+      })
+    })
 
-        expect(mockMap.has)
-          .to.be.calledWith('credentialsPath')
+    describe('A `map` instance is not passed as an argument', () => {
+      it('invokes `has` on the default map instance with the argument `credentialsPath`', () => {
+        hasCredentialsPath()
+
+        expect(argsMap.has)
+          .toHaveBeenCalledWith('credentialsPath')
       })
     })
   })
@@ -82,14 +82,19 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   describe('`getCredentialsPath()`', () => {
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `get` on the map instance with the argument `credentialsPath`', () => {
-        const mockMap = {
-          get: sinon.spy()
-        }
+        getCredentialsPath(argsMap)
 
-        getCredentialsPath(mockMap)
+        expect(argsMap.get)
+          .toHaveBeenCalledWith('credentialsPath')
+      })
+    })
 
-        expect(mockMap.get)
-          .to.be.calledWith('credentialsPath')
+    describe('A `map` instance is not passed as an argument', () => {
+      it('invokes `get` on the default map instance with the argument `credentialsPath`', () => {
+        getCredentialsPath()
+
+        expect(argsMap.get)
+          .toHaveBeenCalledWith('credentialsPath')
       })
     })
   })
@@ -97,14 +102,19 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   describe('`hasCredentialsTokenPath()`', () => {
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `has` on the map instance with the argument `credentialsTokenPath`', () => {
-        const mockMap = {
-          has: sinon.spy()
-        }
+        hasCredentialsTokenPath(argsMap)
 
-        hasCredentialsTokenPath(mockMap)
+        expect(argsMap.has)
+          .toHaveBeenCalledWith('credentialsTokenPath')
+      })
+    })
 
-        expect(mockMap.has)
-          .to.be.calledWith('credentialsTokenPath')
+    describe('A `map` instance is not passed as an argument', () => {
+      it('invokes `has` on the default map instance with the argument `credentialsTokenPath`', () => {
+        hasCredentialsTokenPath()
+
+        expect(argsMap.has)
+          .toHaveBeenCalledWith('credentialsTokenPath')
       })
     })
   })
@@ -112,14 +122,19 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   describe('`getCredentialsTokenPath()`', () => {
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `get` on the map instance with the argument `credentialsTokenPath`', () => {
-        const mockMap = {
-          get: sinon.spy()
-        }
+        getCredentialsTokenPath(argsMap)
 
-        getCredentialsTokenPath(mockMap)
+        expect(argsMap.get)
+          .toHaveBeenCalledWith('credentialsTokenPath')
+      })
+    })
 
-        expect(mockMap.get)
-          .to.be.calledWith('credentialsTokenPath')
+    describe('A `map` instance is not passed as an argument', () => {
+      it('invokes `get` on the default map instance with the argument `credentialsTokenPath`', () => {
+        getCredentialsTokenPath()
+
+        expect(argsMap.get)
+          .toHaveBeenCalledWith('credentialsTokenPath')
       })
     })
   })
@@ -127,14 +142,19 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   describe('`hasCredentialsJson()`', () => {
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `has` on the map instance with the argument `credentialsJson`', () => {
-        const mockMap = {
-          has: sinon.spy()
-        }
+        hasCredentialsJson(argsMap)
 
-        hasCredentialsJson(mockMap)
+        expect(argsMap.has)
+          .toHaveBeenCalledWith('credentialsJson')
+      })
+    })
 
-        expect(mockMap.has)
-          .to.be.calledWith('credentialsJson')
+    describe('A `map` instance is not passed as an argument', () => {
+      it('invokes `has` on the default map instance with the argument `credentialsJson`', () => {
+        hasCredentialsJson()
+
+        expect(argsMap.has)
+          .toHaveBeenCalledWith('credentialsJson')
       })
     })
   })
@@ -142,14 +162,19 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   describe('`getCredentialsJson()`', () => {
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `get` on the map instance with the argument `credentialsJson`', () => {
-        const mockMap = {
-          get: sinon.spy()
-        }
+        getCredentialsJson(argsMap)
 
-        getCredentialsJson(mockMap)
+        expect(argsMap.get)
+          .toHaveBeenCalledWith('credentialsJson')
+      })
+    })
 
-        expect(mockMap.get)
-          .to.be.calledWith('credentialsJson')
+    describe('A `map` instance is not passed as an argument', () => {
+      it('invokes `get` on the default map instance with the argument `credentialsJson`', () => {
+        getCredentialsJson()
+
+        expect(argsMap.get)
+          .toHaveBeenCalledWith('credentialsJson')
       })
     })
   })
@@ -157,14 +182,19 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   describe('`hasCredentialsTokenJson()`', () => {
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `has` on the map instance with the argument `credentialsTokenJson`', () => {
-        const mockMap = {
-          has: sinon.spy()
-        }
+        hasCredentialsTokenJson(argsMap)
 
-        hasCredentialsTokenJson(mockMap)
+        expect(argsMap.has)
+          .toHaveBeenCalledWith('credentialsTokenJson')
+      })
+    })
 
-        expect(mockMap.has)
-          .to.be.calledWith('credentialsTokenJson')
+    describe('A `map` instance is not passed as an argument', () => {
+      it('invokes `has` on the default map instance with the argument `credentialsTokenJson`', () => {
+        hasCredentialsTokenJson()
+
+        expect(argsMap.has)
+          .toHaveBeenCalledWith('credentialsTokenJson')
       })
     })
   })
@@ -172,14 +202,19 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   describe('`getCredentialsTokenJson()`', () => {
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `get` on the map instance with the argument `credentialsTokenJson`', () => {
-        const mockMap = {
-          get: sinon.spy()
-        }
+        getCredentialsTokenJson(argsMap)
 
-        getCredentialsTokenJson(mockMap)
+        expect(argsMap.get)
+          .toHaveBeenCalledWith('credentialsTokenJson')
+      })
+    })
 
-        expect(mockMap.get)
-          .to.be.calledWith('credentialsTokenJson')
+    describe('A `map` instance is not passed as an argument', () => {
+      it('invokes `get` on the default map instance with the argument `credentialsTokenJson`', () => {
+        getCredentialsTokenJson()
+
+        expect(argsMap.get)
+          .toHaveBeenCalledWith('credentialsTokenJson')
       })
     })
   })
