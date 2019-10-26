@@ -9,6 +9,8 @@ const {
   SCOPES,
   ENOENT_CREDENTIALS,
   ENOENT_CREDENTIALS_TOKEN,
+  CREDENTIALS_PATH,
+  CREDENTIALS_TOKEN_PATH,
   /**
    * Path
    */
@@ -48,6 +50,16 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
 
     it('exports `ENOENT_CREDENTIALS_TOKEN`', () => {
       expect(ENOENT_CREDENTIALS_TOKEN)
+        .toEqual(expect.any(String))
+    })
+
+    it('exports `CREDENTIALS_PATH`', () => {
+      expect(CREDENTIALS_PATH)
+        .toEqual(expect.any(String))
+    })
+
+    it('exports `CREDENTIALS_TOKEN_PATH`', () => {
+      expect(CREDENTIALS_TOKEN_PATH)
         .toEqual(expect.any(String))
     })
 
@@ -208,7 +220,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
 
         it('returns the default value', () => {
           expect(credentialsPath)
-            .toBe('credentials.json')
+            .toBe(CREDENTIALS_PATH)
         })
       })
     })
@@ -341,7 +353,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
 
         it('returns the command line argument value', () => {
           expect(credentialsTokenPath)
-            .toBe('credentials-token.json')
+            .toBe(CREDENTIALS_TOKEN_PATH)
         })
       })
     })
