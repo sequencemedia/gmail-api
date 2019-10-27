@@ -1,6 +1,11 @@
 .DS_Store
 
-node_modules
+.editorconfig
+
+.eslintignore
+.eslintrc
+
+.gitignore
 
 credentials.json
 credentials-token.json
@@ -9,3 +14,7 @@ credentials-token.json
 *-credentials-token.json
 
 coverage
+
+# NPM
+.npmignore
+.npmrc
