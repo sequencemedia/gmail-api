@@ -17,7 +17,10 @@ describe('`@sequencemedia/gmail-api/lib/gmail/labels`', () => {
     beforeEach(async () => {
       getSpy = jest.fn().mockReturnValue('MOCK LABEL')
 
-      returnValue = await getLabel({ users: { labels: { get: getSpy } } }, { user: 'MOCK USER ID', id: 'MOCK LABEL ID' })
+      const gmail = { users: { labels: { get: getSpy } } }
+      const parameters = { user: 'MOCK USER ID', id: 'MOCK LABEL ID' }
+
+      returnValue = await getLabel(gmail, parameters)
     })
 
     it('gets the label', () => {

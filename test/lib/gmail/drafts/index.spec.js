@@ -41,7 +41,9 @@ describe('`@sequencemedia/gmail-api/lib/gmail/drafts`', () => {
     beforeEach(async () => {
       getSpy = jest.fn().mockReturnValue('MOCK DRAFT')
 
-      returnValue = await getDraftFormatFull({ users: { drafts: { get: getSpy } } }, { user: 'MOCK USER ID', id: 'MOCK DRAFT ID' })
+      const gmail = { users: { drafts: { get: getSpy } } }
+
+      returnValue = await getDraftFormatFull(gmail, { user: 'MOCK USER ID', id: 'MOCK DRAFT ID' })
     })
 
     it('gets the draft', () => {
@@ -62,7 +64,10 @@ describe('`@sequencemedia/gmail-api/lib/gmail/drafts`', () => {
     beforeEach(async () => {
       getSpy = jest.fn().mockReturnValue('MOCK DRAFT')
 
-      returnValue = await getDraftFormatMinimal({ users: { drafts: { get: getSpy } } }, { user: 'MOCK USER ID', id: 'MOCK DRAFT ID' })
+      const gmail = { users: { drafts: { get: getSpy } } }
+      const parameters = { user: 'MOCK USER ID', id: 'MOCK DRAFT ID' }
+
+      returnValue = await getDraftFormatMinimal(gmail, parameters)
     })
 
     it('gets the draft', () => {
@@ -83,7 +88,10 @@ describe('`@sequencemedia/gmail-api/lib/gmail/drafts`', () => {
     beforeEach(async () => {
       getSpy = jest.fn().mockReturnValue('MOCK DRAFT')
 
-      returnValue = await getDraftFormatRaw({ users: { drafts: { get: getSpy } } }, { user: 'MOCK USER ID', id: 'MOCK DRAFT ID' })
+      const gmail = { users: { drafts: { get: getSpy } } }
+      const parameters = { user: 'MOCK USER ID', id: 'MOCK DRAFT ID' }
+
+      returnValue = await getDraftFormatRaw(gmail, parameters)
     })
 
     it('gets the draft', () => {
@@ -104,7 +112,10 @@ describe('`@sequencemedia/gmail-api/lib/gmail/drafts`', () => {
     beforeEach(async () => {
       getSpy = jest.fn().mockReturnValue('MOCK DRAFT')
 
-      returnValue = await getDraftFormatMetadata({ users: { drafts: { get: getSpy } } }, { user: 'MOCK USER ID', id: 'MOCK DRAFT ID' })
+      const gmail = { users: { drafts: { get: getSpy } } }
+      const parameters = { user: 'MOCK USER ID', id: 'MOCK DRAFT ID' }
+
+      returnValue = await getDraftFormatMetadata(gmail, parameters)
     })
 
     it('gets the draft', () => {
@@ -125,7 +136,10 @@ describe('`@sequencemedia/gmail-api/lib/gmail/drafts`', () => {
     beforeEach(async () => {
       getSpy = jest.fn().mockReturnValue('MOCK DRAFT')
 
-      returnValue = await getDraft({ users: { drafts: { get: getSpy } } }, { user: 'MOCK USER ID', id: 'MOCK DRAFT ID' })
+      const gmail = { users: { drafts: { get: getSpy } } }
+      const parameters = { user: 'MOCK USER ID', id: 'MOCK DRAFT ID' }
+
+      returnValue = await getDraft(gmail, parameters)
     })
 
     it('gets the draft', () => {

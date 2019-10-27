@@ -28,7 +28,7 @@ const {
   getCredentialsJson,
   hasCredentialsTokenJson,
   getCredentialsTokenJson
-} = require('@sequencemedia/gmail-api/lib/constants')
+} = require('@sequencemedia/gmail-api/lib/parameters')
 
 jest.mock('googleapis', () => ({
   google: {
@@ -47,7 +47,7 @@ jest.mock('sacred-fs', () => ({
   writeFile: jest.fn(() => Promise.resolve())
 }))
 
-jest.mock('@sequencemedia/gmail-api/lib/constants', () => ({
+jest.mock('@sequencemedia/gmail-api/lib/parameters', () => ({
   /**
    * Path
    */
