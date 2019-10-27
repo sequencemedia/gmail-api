@@ -4,17 +4,6 @@ const {
   ENOENT_CREDENTIALS_TOKEN
 } = require('@sequencemedia/gmail-api/lib/constants')
 
-jest.mock('@sequencemedia/gmail-api/lib/argv', () => ({
-  hasCredentialsPath: jest.fn(false),
-  getCredentialsPath: jest.fn(undefined),
-  hasCredentialsTokenPath: jest.fn(false),
-  getCredentialsTokenPath: jest.fn(undefined),
-  hasCredentialsJson: jest.fn(false),
-  getCredentialsJson: jest.fn(undefined),
-  hasCredentialsTokenJson: jest.fn(false),
-  getCredentialsTokenJson: jest.fn(undefined)
-}))
-
 describe('`@sequencemedia/gmail-api/lib/constants`', () => {
   describe('Always', () => {
     it('exports `SCOPES`', () => {
