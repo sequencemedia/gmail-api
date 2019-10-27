@@ -60,6 +60,11 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   })
 
   describe('`hasCredentialsPath()`', () => {
+    beforeEach(() => {
+      argsMap.has.mockReset()
+      argsMap.get.mockReset()
+    })
+
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `has` on the map instance with the argument `credentialsPath`', () => {
         hasCredentialsPath(argsMap)
@@ -80,6 +85,11 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   })
 
   describe('`getCredentialsPath()`', () => {
+    beforeEach(() => {
+      argsMap.has.mockReset()
+      argsMap.get.mockReset()
+    })
+
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `get` on the map instance with the argument `credentialsPath`', () => {
         getCredentialsPath(argsMap)
@@ -100,6 +110,11 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   })
 
   describe('`hasCredentialsTokenPath()`', () => {
+    beforeEach(() => {
+      argsMap.has.mockReset()
+      argsMap.get.mockReset()
+    })
+
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `has` on the map instance with the argument `credentialsTokenPath`', () => {
         hasCredentialsTokenPath(argsMap)
@@ -120,6 +135,11 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   })
 
   describe('`getCredentialsTokenPath()`', () => {
+    beforeEach(() => {
+      argsMap.has.mockReset()
+      argsMap.get.mockReset()
+    })
+
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `get` on the map instance with the argument `credentialsTokenPath`', () => {
         getCredentialsTokenPath(argsMap)
@@ -140,6 +160,11 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   })
 
   describe('`hasCredentialsJson()`', () => {
+    beforeEach(() => {
+      argsMap.has.mockReset()
+      argsMap.get.mockReset()
+    })
+
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `has` on the map instance with the argument `credentialsJson`', () => {
         hasCredentialsJson(argsMap)
@@ -160,6 +185,11 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   })
 
   describe('`getCredentialsJson()`', () => {
+    beforeEach(() => {
+      argsMap.has.mockReset()
+      argsMap.get.mockReset()
+    })
+
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `get` on the map instance with the argument `credentialsJson`', () => {
         getCredentialsJson(argsMap)
@@ -180,6 +210,11 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   })
 
   describe('`hasCredentialsTokenJson()`', () => {
+    beforeEach(() => {
+      argsMap.has.mockReset()
+      argsMap.get.mockReset()
+    })
+
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `has` on the map instance with the argument `credentialsTokenJson`', () => {
         hasCredentialsTokenJson(argsMap)
@@ -200,6 +235,11 @@ describe('`@sequencemedia/gmail-api/lib/argv`', () => {
   })
 
   describe('`getCredentialsTokenJson()`', () => {
+    beforeEach(() => {
+      argsMap.has.mockReset()
+      argsMap.get.mockReset()
+    })
+
     describe('A `map` instance is passed as an argument', () => {
       it('invokes `get` on the map instance with the argument `credentialsTokenJson`', () => {
         getCredentialsTokenJson(argsMap)

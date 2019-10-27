@@ -9,6 +9,9 @@ const {
   SCOPES,
   ENOENT_CREDENTIALS,
   ENOENT_CREDENTIALS_TOKEN,
+  /**
+   * Default Path
+   */
   CREDENTIALS_PATH,
   CREDENTIALS_TOKEN_PATH,
   /**
@@ -115,7 +118,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
         Reflect.get.mockRestore()
       })
 
-      it('gets command line argument value', () => {
+      it('gets the command line argument value', () => {
         expect(hasCredentialsPathArgValue)
           .toHaveBeenCalled()
 
@@ -123,7 +126,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
           .toHaveBeenCalled()
       })
 
-      it('does not get the the environment variable value', () => {
+      it('does not get the environment variable value', () => {
         expect(Reflect.has)
           .not.toHaveBeenCalled()
 
@@ -167,7 +170,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
             .not.toHaveBeenCalled()
         })
 
-        it('gets the the environment variable value', () => {
+        it('gets the environment variable value', () => {
           expect(Reflect.has)
             .toHaveBeenCalled()
 
@@ -210,7 +213,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
             .not.toHaveBeenCalled()
         })
 
-        it('gets the the environment variable value', () => {
+        it('does not get the environment variable value', () => {
           expect(Reflect.has)
             .toHaveBeenCalled()
 
@@ -256,7 +259,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
           .toHaveBeenCalled()
       })
 
-      it('does not get the the environment variable value', () => {
+      it('does not get the environment variable value', () => {
         expect(Reflect.has)
           .not.toHaveBeenCalled()
 
@@ -292,7 +295,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
           Reflect.get.mockRestore()
         })
 
-        it('gets command line argument value', () => {
+        it('does not get the command line argument value', () => {
           expect(hasCredentialsTokenPathArgValue)
             .toHaveBeenCalled()
 
@@ -300,7 +303,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
             .not.toHaveBeenCalled()
         })
 
-        it('gets environment variable value', () => {
+        it('gets the environment variable value', () => {
           expect(Reflect.has)
             .toHaveBeenCalled()
 
@@ -308,7 +311,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
             .toHaveBeenCalled()
         })
 
-        it('returns the command line argument value', () => {
+        it('returns the environment variable value', () => {
           expect(credentialsTokenPath)
             .toBe('MOCK CREDENTIALS TOKEN PATH ENVIRONMENT VARIABLE VALUE')
         })
@@ -335,7 +338,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
           Reflect.get.mockRestore()
         })
 
-        it('gets command line argument value', () => {
+        it('does not get command line argument value', () => {
           expect(hasCredentialsTokenPathArgValue)
             .toHaveBeenCalled()
 
@@ -343,7 +346,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
             .not.toHaveBeenCalled()
         })
 
-        it('gets environment variable value', () => {
+        it('does not get environment variable value', () => {
           expect(Reflect.has)
             .toHaveBeenCalled()
 
@@ -351,7 +354,7 @@ describe('`@sequencemedia/gmail-api/lib/constants`', () => {
             .not.toHaveBeenCalled()
         })
 
-        it('returns the command line argument value', () => {
+        it('returns the default value', () => {
           expect(credentialsTokenPath)
             .toBe(CREDENTIALS_TOKEN_PATH)
         })
