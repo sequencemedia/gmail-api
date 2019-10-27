@@ -19,7 +19,10 @@ describe('`@sequencemedia/gmail-api/lib/gmail/messages/list`', () => {
         beforeEach(async () => {
           listSpy = jest.fn()
 
-          returnValue = await getMessages({ users: { messages: { list: listSpy } } }, { user: 'MOCK USER ID', max: 1 })
+          const gmail = { users: { messages: { list: listSpy } } }
+          const parameters = { user: 'MOCK USER ID', max: 1 }
+
+          returnValue = await getMessages(gmail, parameters)
         })
 
         it('gets 1 message', () => {
@@ -40,7 +43,10 @@ describe('`@sequencemedia/gmail-api/lib/gmail/messages/list`', () => {
         beforeEach(async () => {
           listSpy = jest.fn()
 
-          returnValue = await getMessages({ users: { messages: { list: listSpy } } }, { user: 'MOCK USER ID', max: -1 })
+          const gmail = { users: { messages: { list: listSpy } } }
+          const parameters = { user: 'MOCK USER ID', max: -1 }
+
+          returnValue = await getMessages(gmail, parameters)
         })
 
         it('does not get any messages', () => {
@@ -61,7 +67,10 @@ describe('`@sequencemedia/gmail-api/lib/gmail/messages/list`', () => {
         beforeEach(async () => {
           listSpy = jest.fn()
 
-          returnValue = await getMessages({ users: { messages: { list: listSpy } } }, { user: 'MOCK USER ID', max: 501 })
+          const gmail = { users: { messages: { list: listSpy } } }
+          const parameters = { user: 'MOCK USER ID', max: 501 }
+
+          returnValue = await getMessages(gmail, parameters)
         })
 
         it('gets 500 messages', () => {
@@ -83,7 +92,10 @@ describe('`@sequencemedia/gmail-api/lib/gmail/messages/list`', () => {
       beforeEach(async () => {
         listSpy = jest.fn()
 
-        returnValue = await getMessages({ users: { messages: { list: listSpy } } }, { user: 'MOCK USER ID' })
+        const gmail = { users: { messages: { list: listSpy } } }
+        const parameters = { user: 'MOCK USER ID' }
+
+        returnValue = await getMessages(gmail, parameters)
       })
 
       it('gets 500 messages', () => {
@@ -105,7 +117,10 @@ describe('`@sequencemedia/gmail-api/lib/gmail/messages/list`', () => {
         beforeEach(async () => {
           listSpy = jest.fn()
 
-          returnValue = await getMessages({ users: { messages: { list: listSpy } } }, { user: 'MOCK USER ID', query: 'MOCK QUERY', max: 1 })
+          const gmail = { users: { messages: { list: listSpy } } }
+          const parameters = { user: 'MOCK USER ID', query: 'MOCK QUERY', max: 1 }
+
+          returnValue = await getMessages(gmail, parameters)
         })
 
         it('gets 1 message', () => {
@@ -126,7 +141,10 @@ describe('`@sequencemedia/gmail-api/lib/gmail/messages/list`', () => {
         beforeEach(async () => {
           listSpy = jest.fn()
 
-          returnValue = await getMessages({ users: { messages: { list: listSpy } } }, { user: 'MOCK USER ID', query: 'MOCK QUERY' })
+          const gmail = { users: { messages: { list: listSpy } } }
+          const parameters = { user: 'MOCK USER ID', query: 'MOCK QUERY' }
+
+          returnValue = await getMessages(gmail, parameters)
         })
 
         it('gets 500 messages', () => {
