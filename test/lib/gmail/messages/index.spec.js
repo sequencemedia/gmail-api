@@ -33,4 +33,109 @@ describe('`@sequencemedia/gmail-api/lib/gmail/messages`', () => {
         .toEqual(expect.any(Function))
     })
   })
+
+  describe('`getMessageFormatFull()`', () => {
+    let getSpy
+    let returnValue
+
+    beforeEach(async () => {
+      getSpy = jest.fn().mockReturnValue('MOCK MESSAGE')
+
+      returnValue = await getMessageFormatFull({ users: { messages: { get: getSpy } } }, { user: 'MOCK USER ID', id: 'MOCK MESSAGE ID' })
+    })
+
+    it('gets the message', () => {
+      expect(getSpy)
+        .toHaveBeenCalledWith({ userId: 'MOCK USER ID', id: 'MOCK MESSAGE ID', format: 'full' })
+    })
+
+    it('returns the message', () => {
+      expect(returnValue)
+        .toBe('MOCK MESSAGE')
+    })
+  })
+
+  describe('`getMessageFormatMinimal()`', () => {
+    let getSpy
+    let returnValue
+
+    beforeEach(async () => {
+      getSpy = jest.fn().mockReturnValue('MOCK MESSAGE')
+
+      returnValue = await getMessageFormatMinimal({ users: { messages: { get: getSpy } } }, { user: 'MOCK USER ID', id: 'MOCK MESSAGE ID' })
+    })
+
+    it('gets the message', () => {
+      expect(getSpy)
+        .toHaveBeenCalledWith({ userId: 'MOCK USER ID', id: 'MOCK MESSAGE ID', format: 'minimal' })
+    })
+
+    it('returns the message', () => {
+      expect(returnValue)
+        .toBe('MOCK MESSAGE')
+    })
+  })
+
+  describe('`getMessageFormatRaw()`', () => {
+    let getSpy
+    let returnValue
+
+    beforeEach(async () => {
+      getSpy = jest.fn().mockReturnValue('MOCK MESSAGE')
+
+      returnValue = await getMessageFormatRaw({ users: { messages: { get: getSpy } } }, { user: 'MOCK USER ID', id: 'MOCK MESSAGE ID' })
+    })
+
+    it('gets the message', () => {
+      expect(getSpy)
+        .toHaveBeenCalledWith({ userId: 'MOCK USER ID', id: 'MOCK MESSAGE ID', format: 'raw' })
+    })
+
+    it('returns the message', () => {
+      expect(returnValue)
+        .toBe('MOCK MESSAGE')
+    })
+  })
+
+  describe('`getMessageFormatMetadata()`', () => {
+    let getSpy
+    let returnValue
+
+    beforeEach(async () => {
+      getSpy = jest.fn().mockReturnValue('MOCK MESSAGE')
+
+      returnValue = await getMessageFormatMetadata({ users: { messages: { get: getSpy } } }, { user: 'MOCK USER ID', id: 'MOCK MESSAGE ID' })
+    })
+
+    it('gets the message', () => {
+      expect(getSpy)
+        .toHaveBeenCalledWith({ userId: 'MOCK USER ID', id: 'MOCK MESSAGE ID', format: 'metadata', metadataHeaders: [] })
+    })
+
+    it('returns the message', () => {
+      expect(returnValue)
+        .toBe('MOCK MESSAGE')
+    })
+  })
+
+  describe('`getMessage()`', () => {
+    let getSpy
+    let returnValue
+
+    beforeEach(async () => {
+      getSpy = jest.fn().mockReturnValue('MOCK MESSAGE')
+
+      returnValue = await getMessage({ users: { messages: { get: getSpy } } }, { user: 'MOCK USER ID', id: 'MOCK MESSAGE ID' })
+    })
+
+    it('gets the message', () => {
+      expect(getSpy)
+        .toHaveBeenCalledWith({ userId: 'MOCK USER ID', id: 'MOCK MESSAGE ID' })
+    })
+
+    it('returns the message', () => {
+      expect(returnValue)
+        .toBe('MOCK MESSAGE')
+    })
+  })
 })
