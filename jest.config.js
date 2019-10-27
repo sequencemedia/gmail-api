@@ -3,7 +3,8 @@ module.exports = {
   verbose: true,
   collectCoverage: true,
   collectCoverageFrom: [
-    './lib/**/*.js'
+    './lib/**/*.js',
+    '!./*/index.js'
   ],
   coverageDirectory: './coverage',
   coveragePathIgnorePatterns: [
