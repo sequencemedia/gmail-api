@@ -84,7 +84,7 @@ See also labels and messages.
 
 ## Credentials
 
-You must supply _public_ or _internal_ `oAuth` 2.0 credentials for an application registered with the [Google developer console](https://console.developers.google.com) which has the Gmail API enabled, and a credentials token authorising the the application to access a Gmail account you control. (The credentials identify your application. The credentials token confirms that your application is authorised to access your Gmail account.)
+You must supply _public_ or _internal_ `oAuth` 2.0 credentials for an application registered with the [Google developer console](https://console.developers.google.com) which has the Gmail API enabled, and a credentials token authorising the application to access a Gmail account you control. (The credentials identify your application. The credentials token confirms that your application is authorised to access your Gmail account.)
 
 ## Configuration
 
