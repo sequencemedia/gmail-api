@@ -9,7 +9,7 @@ The `@sequencemedia/gmail-api` package is an `async` interface to the Gmail API 
 
 ### Messages
 
-```
+```javascript
 import getGmail from ''@sequencemedia/gmail-api/lib/gmail'
 
 import {
@@ -34,7 +34,7 @@ Labels and drafts follow the same pattern.
 
 ### Labels
 
-```
+```javascript
 import getGmail from ''@sequencemedia/gmail-api/lib/gmail'
 
 import {
@@ -58,7 +58,7 @@ labels
 See also messages and drafts.
 
 ### Drafts
-```
+```javascript
 import getGmail from ''@sequencemedia/gmail-api/lib/gmail'
 
 import {
@@ -93,12 +93,15 @@ Credentials and credentials tokens can be supplied either as environment variabl
 ### Environment variables
 
 You can supply paths to files on the file system:
-```
+
+```bash
 CREDENTIALS_PATH
 CREDENTIALS_TOKEN_PATH
 ```
+
 Or, you can supply JSON:
-```
+
+```bash
 CREDENTIALS_JSON
 CREDENTIALS_TOKEN_JSON
 ```
@@ -109,14 +112,14 @@ Credentials and credentials tokens supplied as environment variables containing 
 
 Similarly, you can supply paths to files on the file system:
 
-```
+```bash
 --credentials-path
 --credentials-token-path
 ```
 
 Or, you can supply JSON:
 
-```
+```bash
 --credentials-json
 --credentials-token-json
 ```
