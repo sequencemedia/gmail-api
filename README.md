@@ -10,7 +10,7 @@ The `@sequencemedia/gmail-api` package is an `async` interface to the Gmail API 
 ### Messages
 
 ```javascript
-import getGmail from ''@sequencemedia/gmail-api/lib/gmail'
+import getGmail from '@sequencemedia/gmail-api/lib/gmail'
 
 import {
   getMessages
@@ -35,7 +35,7 @@ Labels and drafts follow the same pattern.
 ### Labels
 
 ```javascript
-import getGmail from ''@sequencemedia/gmail-api/lib/gmail'
+import getGmail from '@sequencemedia/gmail-api/lib/gmail'
 
 import {
   getLabels
@@ -59,7 +59,7 @@ See also messages and drafts.
 
 ### Drafts
 ```javascript
-import getGmail from ''@sequencemedia/gmail-api/lib/gmail'
+import getGmail from '@sequencemedia/gmail-api/lib/gmail'
 
 import {
   getDrafts
