@@ -19,7 +19,7 @@
     "clipboardy": "^2.3.0",
     "cross-env": "^7.0.2",
     "debug": "^4.1.1",
-    "googleapis": "^57.0.0",
+    "googleapis": "^58.0.0",
     "module-alias": "^2.2.2",
     "sacred-fs": "^1.0.18",
     "yargs-parser": "^18.1.3"
