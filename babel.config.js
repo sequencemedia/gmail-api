@@ -7,7 +7,7 @@ module.exports = {
       {
         useBuiltIns: 'usage',
         targets: {
-          node: '12.18.1'
+          node: '12.9.0'
         },
         corejs: 3
       }
