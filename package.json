@@ -22,7 +22,7 @@
     "googleapis": "^67.1.0",
     "module-alias": "^2.2.2",
     "sacred-fs": "^1.2.1",
-    "yargs-parser": "^20.2.5"
+    "yargs-parser": "^20.2.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.17",
