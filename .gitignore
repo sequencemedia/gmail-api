@@ -9,3 +9,9 @@ credentials-token.json
 *-credentials-token.json
 
 coverage
+
+# User-defined NPM configuration
+.npmrc
+
+# User-defined NVM configuration
+.nvmrc
