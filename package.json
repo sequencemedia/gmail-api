@@ -19,7 +19,7 @@
     "clipboardy": "^2.3.0",
     "cross-env": "^7.0.3",
     "debug": "^4.3.1",
-    "googleapis": "^80.0.0",
+    "googleapis": "^80.1.0",
     "module-alias": "^2.2.2",
     "sacred-fs": "^1.2.1",
     "yargs-parser": "^20.2.9"
@@ -31,7 +31,7 @@
     "@babel/preset-env": "^7.14.7",
     "@babel/register": "^7.14.5",
     "babel-plugin-module-resolver": "^4.1.0",
-    "eslint": "^7.29.0",
+    "eslint": "^7.30.0",
     "eslint-import-resolver-babel-module": "^5.3.1",
     "jest": "^27.0.6",
     "standard": "^16.0.3"
