@@ -18,7 +18,7 @@
     "blessed": "^0.1.81",
     "clipboardy": "^2.3.0",
     "cross-env": "^7.0.3",
-    "debug": "^4.3.1",
+    "debug": "^4.3.2",
     "googleapis": "^80.1.0",
     "module-alias": "^2.2.2",
     "sacred-fs": "^1.2.1",
