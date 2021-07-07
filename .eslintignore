@@ -1,2 +1,6 @@
 .circleci
+.git
+.github
+coverage
 lib
+node_modules
