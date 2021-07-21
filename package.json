@@ -25,10 +25,10 @@
     "yargs-parser": "^20.2.9"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.5",
-    "@babel/core": "^7.14.6",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
     "@babel/eslint-parser": "^7.14.7",
-    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-env": "^7.14.8",
     "@babel/register": "^7.14.5",
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.31.0",
