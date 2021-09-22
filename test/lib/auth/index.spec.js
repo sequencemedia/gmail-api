@@ -3,7 +3,7 @@ const { google } = require('googleapis')
 const {
   readFile,
   writeFile
-} = require('sacred-fs')
+} = require('fs/promises')
 
 const {
   getCredentials,
@@ -42,7 +42,7 @@ jest.mock('googleapis', () => ({
 
 jest.mock('debug', () => jest.fn(() => jest.fn()))
 
-jest.mock('sacred-fs', () => ({
+jest.mock('fs/promises', () => ({
   readFile: jest.fn(() => Promise.resolve()),
   writeFile: jest.fn(() => Promise.resolve())
 }))
