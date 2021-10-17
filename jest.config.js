@@ -13,5 +13,8 @@ module.exports = {
   coverageReporters: [
     'lcov',
     'text'
-  ]
+  ],
+  moduleNameMapper: {
+    '@eslint/eslintrc/universal': '@eslint/eslintrc/dist/eslintrc-universal.cjs'
+  }
 }

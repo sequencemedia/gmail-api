@@ -7,7 +7,7 @@ module.exports = {
       {
         useBuiltIns: 'usage',
         targets: {
-          node: '12.9.0'
+          node: 'current'
         },
         corejs: 3
       }
@@ -16,6 +16,8 @@ module.exports = {
   plugins: [
     [
       'module-resolver', {
+        root: ['.'],
+        cwd: 'babelrc',
         alias: {
           '@sequencemedia/gmail-api': '.'
         }
