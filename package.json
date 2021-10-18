@@ -1,6 +1,6 @@
 {
   "name": "@sequencemedia/gmail-api",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "main": "./index.js",
   "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
   "license": "ISC",
@@ -41,7 +41,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "gulp": "^4.0.2",
     "husky": "^7.0.2",
-    "jest": "^27.2.5"
+    "jest": "^27.3.0"
   },
   "_moduleAliases": {
     "@sequencemedia/gmail-api": "."
