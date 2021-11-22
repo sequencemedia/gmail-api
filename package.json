@@ -1,11 +1,11 @@
 {
   "name": "@sequencemedia/gmail-api",
-  "version": "1.0.56",
+  "version": "1.0.57",
   "main": "./index.js",
   "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
   "license": "ISC",
   "engines": {
-    "node": ">=12.19.0"
+    "node": ">=16.13.0"
   },
   "scripts": {
     "start": "cross-env DEBUG=@sequencemedia/gmail-api* node app",
