@@ -1,6 +1,6 @@
 {
   "name": "@sequencemedia/gmail-api",
-  "version": "1.0.92",
+  "version": "1.0.93",
   "main": "./index.js",
   "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
   "license": "ISC",
