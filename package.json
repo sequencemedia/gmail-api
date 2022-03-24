@@ -1,6 +1,6 @@
 {
   "name": "@sequencemedia/gmail-api",
-  "version": "1.0.155",
+  "version": "1.0.156",
   "main": "./index.js",
   "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
   "license": "ISC",
@@ -22,7 +22,7 @@
     "clipboardy": "^3.0.0",
     "cross-env": "^7.0.3",
     "debug": "^4.3.4",
-    "googleapis": "^97.0.0",
+    "googleapis": "^98.0.0",
     "module-alias": "^2.2.2",
     "yargs-parser": "^21.0.1"
   },
