@@ -27,10 +27,10 @@
     "yargs-parser": "^21.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.9",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
     "@babel/eslint-parser": "^7.17.0",
-    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-env": "^7.17.10",
     "@babel/register": "^7.17.7",
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^8.14.0",
@@ -41,7 +41,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "gulp": "^4.0.2",
     "husky": "^7.0.4",
-    "jest": "^28.0.2"
+    "jest": "^28.0.3"
   },
   "_moduleAliases": {
     "@sequencemedia/gmail-api": "."
