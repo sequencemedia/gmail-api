@@ -1,11 +1,25 @@
 .DS_Store
 
+.circleci
+.husky
+
 .editorconfig
 
 .eslintignore
 .eslintrc
 
+.github
 .gitignore
+
+# NPM
+.npmignore
+.npmrc
+
+# NVM
+.nvmrc
+
+# Deps
+.depsrc
 
 credentials.json
 credentials-token.json
@@ -14,7 +28,3 @@ credentials-token.json
 *-credentials-token.json
 
 coverage
-
-# NPM
-.npmignore
-.npmrc
