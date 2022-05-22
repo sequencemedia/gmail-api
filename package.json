@@ -1,6 +1,6 @@
 {
   "name": "@sequencemedia/gmail-api",
-  "version": "1.0.188",
+  "version": "1.0.189",
   "main": "./index.js",
   "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
   "license": "ISC",
@@ -10,7 +10,7 @@
   "scripts": {
     "start": "cross-env DEBUG=@sequencemedia/gmail-api* node app",
     "start:credentials": "cross-env DEBUG=@sequencemedia/gmail-api* node credentials",
-    "test": "jest test",
+    "test": "cross-env NODE_ENV=test jest test",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "gulp": "gulp --color",
