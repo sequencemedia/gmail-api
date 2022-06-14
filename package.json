@@ -1,6 +1,6 @@
 {
   "name": "@sequencemedia/gmail-api",
-  "version": "1.0.200",
+  "version": "1.0.201",
   "main": "./index.js",
   "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
   "license": "ISC",
@@ -22,13 +22,13 @@
     "clipboardy": "^3.0.0",
     "cross-env": "^7.0.3",
     "debug": "^4.3.4",
-    "googleapis": "^101.0.0",
+    "googleapis": "^102.0.0",
     "module-alias": "^2.2.2",
     "yargs-parser": "^21.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
-    "@babel/core": "^7.18.2",
+    "@babel/core": "^7.18.5",
     "@babel/eslint-parser": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@babel/register": "^7.17.7",
