@@ -41,7 +41,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "gulp": "^4.0.2",
     "husky": "^8.0.1",
-    "jest": "^28.1.1"
+    "jest": "^28.1.2"
   },
   "_moduleAliases": {
     "@sequencemedia/gmail-api": "."
