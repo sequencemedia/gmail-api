@@ -22,7 +22,7 @@
     "clipboardy": "^3.0.0",
     "cross-env": "^7.0.3",
     "debug": "^4.3.4",
-    "googleapis": "^104.0.0",
+    "googleapis": "^105.0.0",
     "module-alias": "^2.2.2",
     "yargs-parser": "^21.0.1"
   },
