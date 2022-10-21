@@ -28,3 +28,5 @@ credentials-token.json
 *-credentials-token.json
 
 coverage
+
+gulpfile.*
