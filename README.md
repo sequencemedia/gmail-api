@@ -10,15 +10,15 @@ The `@sequencemedia/gmail-api` package is an `async` interface to the Gmail API 
 ### Messages
 
 ```javascript
-import getGmail from '@sequencemedia/gmail-api/lib/gmail'
+import getGmail from '@sequencemedia/gmail-api/src/gmail'
 
 import {
   getMessages
-} from '@sequencemedia/gmail-api/lib/gmail/messages/list'
+} from '@sequencemedia/gmail-api/src/gmail/messages/list'
 
 import {
   getMessage
-} from '@sequencemedia/gmail-api/lib/gmail/messages'
+} from '@sequencemedia/gmail-api/src/gmail/messages'
 
 const gmail = await getGmail()
 const messageList = await getMessages(gmail, { max: 100 })
@@ -35,15 +35,15 @@ Labels and drafts follow the same pattern.
 ### Labels
 
 ```javascript
-import getGmail from '@sequencemedia/gmail-api/lib/gmail'
+import getGmail from '@sequencemedia/gmail-api/src/gmail'
 
 import {
   getLabels
-} from '@sequencemedia/gmail-api/lib/gmail/labels/list'
+} from '@sequencemedia/gmail-api/src/gmail/labels/list'
 
 import {
   getLabel
-} from '@sequencemedia/gmail-api/lib/gmail/labels'
+} from '@sequencemedia/gmail-api/src/gmail/labels'
 
 const gmail = await getGmail()
 const labelList = await getLabels(gmail)
@@ -59,15 +59,15 @@ See also messages and drafts.
 
 ### Drafts
 ```javascript
-import getGmail from '@sequencemedia/gmail-api/lib/gmail'
+import getGmail from '@sequencemedia/gmail-api/src/gmail'
 
 import {
   getDrafts
-} from '@sequencemedia/gmail-api/lib/gmail/drafts/list'
+} from '@sequencemedia/gmail-api/src/gmail/drafts/list'
 
 import {
   getDraft
-} from '@sequencemedia/gmail-api/lib/gmail/drafts'
+} from '@sequencemedia/gmail-api/src/gmail/drafts'
 
 const gmail = await getGmail()
 const draftList = await getDrafts(gmail, { max: 100 })
