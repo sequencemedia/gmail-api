@@ -6,7 +6,7 @@
   "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
   "license": "ISC",
   "engines": {
-    "node": ">=16.13.0"
+    "node": ">=18.5.0"
   },
   "scripts": {
     "start": "cross-env DEBUG=@sequencemedia/gmail-api* node app",
