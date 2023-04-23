@@ -133,4 +133,4 @@ Again, credentials and credentials tokens supplied as command-line arguments con
 
 ## Privacy Policy
 
-The `@sequencemedia/gmail-api` package does not store any data from Gmail, not does it gather usage data.
+The `@sequencemedia/gmail-api` package does not store any data from Gmail, nor does it gather usage data.
