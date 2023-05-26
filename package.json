@@ -25,10 +25,10 @@
     "yargs-parser": "^21.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
+    "@babel/core": "^7.22.1",
     "@babel/eslint-parser": "^7.21.8",
-    "@babel/preset-env": "^7.21.5",
-    "@sequencemedia/hooks": "^1.0.422",
+    "@babel/preset-env": "^7.22.2",
+    "@sequencemedia/hooks": "^1.0.423",
     "eslint": "^8.41.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
