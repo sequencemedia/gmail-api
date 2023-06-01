@@ -1,6 +1,6 @@
 {
   "name": "@sequencemedia/gmail-api",
-  "version": "1.1.54",
+  "version": "1.1.55",
   "main": "./index.mjs",
   "type": "module",
   "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
