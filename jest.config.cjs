@@ -1,6 +1,10 @@
 module.exports = {
   bail: 1,
   verbose: true,
+  rootDir: '.',
+  roots: [
+    './test'
+  ],
   transform: {},
   testMatch: ['**/*/*.spec.mjs'],
   collectCoverage: true,
