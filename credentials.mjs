@@ -6,13 +6,13 @@ import debug from 'debug'
 import {
   SCOPES,
   ENOENT_CREDENTIALS
-} from './src/constants'
+} from './src/constants.mjs'
 
 import {
   getAuth,
   getCredentialsTokenForAuthCode,
   setCredentialsToken
-} from './src/auth'
+} from './src/auth/index.mjs'
 
 const error = debug('@sequencemedia/gmail-api:credentials:error')
 
@@ -477,4 +477,4 @@ async function app () {
   }
 }
 
-module.exports = app()
+export default app()
