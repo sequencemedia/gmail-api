@@ -25,7 +25,7 @@
     "clipboardy": "^3.0.0",
     "cross-env": "^7.0.3",
     "debug": "^4.3.4",
-    "googleapis": "^124.0.0",
+    "googleapis": "^126.0.0",
     "yargs-parser": "^21.1.1"
   },
   "devDependencies": {
