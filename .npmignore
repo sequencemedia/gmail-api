@@ -1,7 +1,6 @@
 .DS_Store
 
 .circleci
-.github
 .husky
 
 .editorconfig
@@ -9,6 +8,7 @@
 .eslintignore
 .eslintrc
 
+.github
 .gitattributes
 .gitignore
 
@@ -29,5 +29,7 @@ credentials-token.json
 *-credentials-token.json
 
 coverage
+test
 
+jest.*
 gulpfile.*
