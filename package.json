@@ -16,7 +16,7 @@
     "start": "cross-env DEBUG=@sequencemedia/gmail-api* node credentials.mjs",
     "start:credentials": "cross-env DEBUG=@sequencemedia/gmail-api* node credentials",
     "test": "cross-env NODE_ENV=test NODE_OPTIONS=\"--no-warnings --experimental-vm-modules\" jest",
-    "lint": "eslint . --ext .js --ext .mjs,.cjs",
+    "lint": "eslint . --ext .mjs,.cjs,.js",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "husky install"
   },
