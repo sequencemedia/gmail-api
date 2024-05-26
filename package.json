@@ -13,12 +13,12 @@
     "node": ">=18.12.0"
   },
   "scripts": {
-    "start": "cross-env DEBUG=@sequencemedia/gmail-api* node credentials.mjs",
-    "start:credentials": "cross-env DEBUG=@sequencemedia/gmail-api* node credentials",
-    "test": "cross-env NODE_ENV=test NODE_OPTIONS=\"--no-warnings --experimental-vm-modules\" jest",
     "lint": "eslint . --ext .mjs,.cjs,.js",
     "lint:fix": "npm run lint -- --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "start": "cross-env DEBUG=@sequencemedia/gmail-api* node credentials.mjs",
+    "start:credentials": "cross-env DEBUG=@sequencemedia/gmail-api* node credentials",
+    "test": "cross-env NODE_ENV=test NODE_OPTIONS=\"--no-warnings --experimental-vm-modules\" jest"
   },
   "dependencies": {
     "blessed": "^0.1.81",
@@ -32,26 +32,26 @@
     "@babel/core": "^7.24.6",
     "@babel/eslint-parser": "^7.24.6",
     "@babel/preset-env": "^7.24.6",
-    "@sequencemedia/hooks": "^1.0.491",
+    "@sequencemedia/hooks": "^1.0.492",
     "eslint": "8.57.0",
     "eslint-config-standard": "^17.1.0",
     "husky": "^9.0.11",
     "jest": "^29.7.0"
   },
   "imports": {
-    "#constants": "./src/constants.mjs",
-    "#parameters": "./src/parameters.mjs",
-    "#argv/*": "./src/argv/*.mjs",
     "#argv": "./src/argv/index.mjs",
+    "#argv/*": "./src/argv/*.mjs",
     "#auth": "./src/auth/index.mjs",
-    "#gmail/drafts/list": "./src/gmail/drafts/list/index.mjs",
+    "#constants": "./src/constants.mjs",
+    "#gmail": "./src/gmail/index.mjs",
+    "#gmail/*": "./src/gmail/*.mjs",
     "#gmail/drafts": "./src/gmail/drafts/index.mjs",
-    "#gmail/labels/list": "./src/gmail/labels/list/index.mjs",
+    "#gmail/drafts/list": "./src/gmail/drafts/list/index.mjs",
     "#gmail/labels": "./src/gmail/labels/index.mjs",
+    "#gmail/labels/list": "./src/gmail/labels/list/index.mjs",
+    "#gmail/messages": "./src/gmail/messages/index.mjs",
     "#gmail/messages/attachments": "./src/gmail/messages/attachments/index.mjs",
     "#gmail/messages/list": "./src/gmail/messages/list/index.mjs",
-    "#gmail/messages": "./src/gmail/messages/index.mjs",
-    "#gmail/*": "./src/gmail/*.mjs",
-    "#gmail": "./src/gmail/index.mjs"
+    "#parameters": "./src/parameters.mjs"
   }
 }
