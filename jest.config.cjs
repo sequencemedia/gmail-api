@@ -6,7 +6,7 @@ module.exports = {
     './test'
   ],
   transform: {},
-  testMatch: ['**/*/*.spec.mjs'],
+  testMatch: ['**/*.spec.mjs'],
   collectCoverage: true,
   collectCoverageFrom: [
     './src/**/*.mjs',
