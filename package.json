@@ -24,7 +24,7 @@
     "blessed": "^0.1.81",
     "clipboardy": "^4.0.0",
     "cross-env": "^7.0.3",
-    "debug": "^4.3.5",
+    "debug": "^4.3.6",
     "googleapis": "^140.0.1",
     "yargs-parser": "^21.1.1"
   },
