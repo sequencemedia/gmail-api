@@ -25,14 +25,14 @@
     "clipboardy": "^4.0.0",
     "cross-env": "^7.0.3",
     "debug": "^4.3.6",
-    "googleapis": "^143.0.0",
+    "googleapis": "^144.0.0",
     "yargs-parser": "^21.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
-    "@sequencemedia/eslint-config-standard": "^0.0.53",
-    "@sequencemedia/hooks": "^1.0.543",
+    "@sequencemedia/eslint-config-standard": "^0.0.54",
+    "@sequencemedia/hooks": "^1.0.544",
     "eslint": "^9.9.1",
     "globals": "^15.9.0",
     "husky": "^9.1.5",
