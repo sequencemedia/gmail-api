@@ -7,6 +7,7 @@ export default (
       '**/*.{cjs,mjs}'
     ],
     ignores: [
+      'coverage',
       'test'
     ],
     languageOptions: {
