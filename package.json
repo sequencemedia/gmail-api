@@ -1,6 +1,6 @@
 {
   "name": "@sequencemedia/gmail-api",
-  "version": "1.1.310",
+  "version": "1.1.311",
   "main": "./index.mjs",
   "type": "module",
   "author": {
