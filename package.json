@@ -25,17 +25,17 @@
     "clipboardy": "^4.0.0",
     "cross-env": "^7.0.3",
     "debug": "^4.4.1",
-    "googleapis": "^149.0.0",
-    "yargs-parser": "^21.1.1"
+    "googleapis": "^150.0.1",
+    "yargs-parser": "^22.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.1",
+    "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
-    "@sequencemedia/eslint-config-standard": "^0.2.61",
-    "eslint": "^9.27.0",
-    "globals": "^16.1.0",
+    "@sequencemedia/eslint-config-standard": "^0.2.65",
+    "eslint": "^9.29.0",
+    "globals": "^16.2.0",
     "husky": "^9.1.7",
-    "jest": "^29.7.0"
+    "jest": "^30.0.0"
   },
   "imports": {
     "#argv": "./src/argv/index.mjs",
