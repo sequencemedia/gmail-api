@@ -25,14 +25,14 @@
     "clipboardy": "^4.0.0",
     "cross-env": "^10.0.0",
     "debug": "^4.4.1",
-    "googleapis": "^155.0.0",
+    "googleapis": "^157.0.0",
     "yargs-parser": "^22.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.0",
-    "@babel/preset-env": "^7.28.0",
-    "@sequencemedia/eslint-config-standard": "^0.2.75",
-    "eslint": "^9.32.0",
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "@sequencemedia/eslint-config-standard": "^0.2.76",
+    "eslint": "^9.34.0",
     "globals": "^16.3.0",
     "husky": "^9.1.7",
     "jest": "^30.0.5"
