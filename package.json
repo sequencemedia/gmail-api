@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.3",
+    "@babel/preset-env": "^7.29.5",
     "@sequencemedia/eslint-config-standard": "^0.2.107",
     "eslint": "^10.3.0",
     "globals": "^17.6.0",
