@@ -35,7 +35,7 @@
     "eslint": "^10.3.0",
     "globals": "^17.6.0",
     "husky": "^9.1.7",
-    "jest": "^30.3.0"
+    "jest": "^30.4.0"
   },
   "imports": {
     "#argv": "./src/argv/index.mjs",
